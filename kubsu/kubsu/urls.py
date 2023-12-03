@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
+from .views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('Account.urls'), name='API')   #User start work there
+    path('auth/', AuthUser),   #User start work there
 ]
