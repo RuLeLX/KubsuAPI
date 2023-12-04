@@ -7,13 +7,10 @@ class Students(models.Model):
     name = models.TextField()
     patronym = models.TextField()
 
-    # series_password = models.PositiveIntegerField(unique=True)
-    # num_password = models.PositiveIntegerField(unique=True)
-    # SNILS = models.TextField(unique=True)
-
     num_group = models.ForeignKey(
         'kubsu.Groups',
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        default='0'
     )
 
 
@@ -25,5 +22,4 @@ class Teachers(models.Model):
 
     academic_title = models.TextField()
     department = models.TextField()
-
     

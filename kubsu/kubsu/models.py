@@ -26,11 +26,12 @@ class Fac_teacher(models.Model):
     class Meta:
         unique_together = (('id_faculty', 'id_teacher'),)
 
-    id_faculty = models.ForeignKey(
-        'kubsu.Faculties',
-        on_delete=models.CASCADE
-    )
     id_teacher = models.ForeignKey(
         'Account.Teachers',
         on_delete=models.CASCADE
     )
+    id_faculty = models.ForeignKey(
+        'kubsu.Faculties',
+        on_delete=models.CASCADE
+    )
+    
