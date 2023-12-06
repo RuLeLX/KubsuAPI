@@ -8,14 +8,15 @@ import re #Check login
 
 @api_view(['POST'])  #Auth user in system
 def AuthUser(request):
-
     #Who is have login? Student, Teacher or Decan
     login = request.data['login']
     password = request.data['password']
+
+    
 
     datauser = {
         "login": login,
         "password": password
     }
-
+    return Response(datauser)
 

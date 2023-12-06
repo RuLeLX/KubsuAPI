@@ -28,7 +28,8 @@ class Decan(models.Model):
     id_faculty = models.ForeignKey(
         'kubsu.Faculties',
         primary_key=True,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        default=0
     )
     login = models.TextField()
     password = models.TextField()
