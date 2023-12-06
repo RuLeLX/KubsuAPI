@@ -28,7 +28,8 @@ class Fac_teacher(models.Model):
 
     id_teacher = models.ForeignKey(
         'Account.Teachers',
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        default=0
     )
     id_faculty = models.ForeignKey(
         'kubsu.Faculties',

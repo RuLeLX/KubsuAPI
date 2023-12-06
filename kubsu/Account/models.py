@@ -20,6 +20,7 @@ class Teachers(models.Model):
     name = models.TextField()
     patronym = models.TextField()
 
+    email = models.TextField(null=False, unique=True)
     academic_title = models.TextField()
     department = models.TextField()
     
