@@ -30,4 +30,5 @@ class Decan(models.Model):
         primary_key=True,
         on_delete=models.CASCADE
     )
+    password = models.TextField()
     
