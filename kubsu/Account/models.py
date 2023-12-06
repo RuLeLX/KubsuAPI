@@ -23,4 +23,11 @@ class Teachers(models.Model):
     email = models.TextField(null=False, unique=True)
     academic_title = models.TextField()
     department = models.TextField()
+
+class Decan(models.Model):
+    id_faculty = models.ForeignKey(
+        'kubsu.Faculties',
+        primary_key=True,
+        on_delete=models.CASCADE
+    )
     
