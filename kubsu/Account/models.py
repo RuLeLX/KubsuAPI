@@ -6,6 +6,7 @@ class Students(models.Model):
     last_name = models.TextField()
     name = models.TextField()
     patronym = models.TextField()
+    password = models.TextField(default='password')
 
     num_group = models.ForeignKey(
         'kubsu.Groups',
@@ -19,6 +20,8 @@ class Teachers(models.Model):
     last_name = models.TextField()
     name = models.TextField()
     patronym = models.TextField()
+    password = models.TextField(default='password')
+
 
     email = models.TextField(null=False, unique=True)
     academic_title = models.TextField()

@@ -28,14 +28,17 @@ def AuthUser(request):
     
     def check_login_decan(login):
         #For decans special login in database
-        pass
+        return True
 
     login = request.data['login']
     password = request.data['password']
 
     if check_login_student(login):
-        datauser = StudentSerializer(Students.objects.filter(id_students=login, password=password))
+        datauser = StudentSerializer(Students.objects.filter(id_students=login, password=password).first())
+    elif check_login_teacher(login):
+        datauser = TeacherSerializer(Teachers.objects.filter(email=login, password=password).first())
+    elif check_login_decan(login):
+        datauser = DecanSerializer(Decan.objects.filter(id_faculty=login, password=password).first())
 
-    
-    #return Response(datauser)
+    return Response(datauser)
 
