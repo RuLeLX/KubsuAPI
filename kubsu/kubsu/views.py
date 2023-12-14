@@ -16,5 +16,19 @@ def AuthUser(request):
 
     datauser = UserSystem(login, password).get()
 
-    return Response(datauser.data)
+
+    #Create jwt auth
+    payload = datauser.data
+    if payload == Error.data:
+        return Response(Error.data)
+
+    token = jwt.encode(payload, 'secret', algorithm='HS256')
+    response = Response()
+    response.set_cookie(key='jwt', value=token, httponly=True)
+    response.data = {
+        'jwt': token
+    }
+
+
+    return response
 
