@@ -4,5 +4,7 @@ from .views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', AuthUser),   #User start work there
+    path('auth/', AuthUser, name='Authorization'),   #User start work there
+    path('profile/', include('Account.urls'))
+
 ]
