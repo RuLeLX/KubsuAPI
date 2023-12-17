@@ -1,4 +1,5 @@
 from django.db import models
+from kubsu.models import *
 from Account.models import *
 from LearnData.models import *
 
@@ -14,8 +15,14 @@ class HomeWorks(models.Model):
     id_discip = models.ForeignKey(
         'LearnData.Desciplines',
         on_delete=models.CASCADE
-
     )
+
+    num_group = models.ForeignKey(
+        'kubsu.Groups',
+        on_delete = models.CASCADE,
+        default='0'
+    )
+
     work = models.TextField()
 
 class Progress(models.Model):

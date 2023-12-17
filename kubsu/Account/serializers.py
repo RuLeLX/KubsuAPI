@@ -14,7 +14,13 @@ class StudentSerializer(serializers.ModelSerializer):
         return 'Student'
     
     def get_time_create(self, obj):
-        return datetime.datetime.now()
+        date = []
+        current_date = datetime.datetime.now()
+        date.extend([
+            current_date.year, current_date.month, current_date.day,
+            current_date.hour, current_date.minute
+        ])
+        return date
 
 class TeacherSerializer(serializers.ModelSerializer):
     role = serializers.SerializerMethodField()
@@ -28,7 +34,13 @@ class TeacherSerializer(serializers.ModelSerializer):
         return 'Teacher'
     
     def get_time_create(self, obj):
-        return datetime.datetime.now()
+        date = []
+        current_date = datetime.datetime.now()
+        date.extend([
+            current_date.year, current_date.month, current_date.day,
+            current_date.hour, current_date.minute
+        ])
+        return date
 
 class DecanSerializer(serializers.ModelSerializer):
     role = serializers.SerializerMethodField()
@@ -42,4 +54,10 @@ class DecanSerializer(serializers.ModelSerializer):
         return 'Decan'
     
     def get_time_create(self, obj):
-        return datetime.datetime.now()
+        date = []
+        current_date = datetime.datetime.now()
+        date.extend([
+            current_date.year, current_date.month, current_date.day,
+            current_date.hour, current_date.minute
+        ])
+        return date

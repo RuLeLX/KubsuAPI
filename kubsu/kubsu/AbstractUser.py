@@ -61,9 +61,7 @@ class JSONdecan(AbstractUser):
     
     def check_login(self):
         #For decans special login in database
-        if self.login == "superuser":
-            return True
-        return False
+        return True
     
     def get(self):
         if self.check_login():
@@ -78,7 +76,7 @@ class JSONdecan(AbstractUser):
 ####
 class UserSystem(AbstractUser):
 
-    classlist = [JSONdecan, JSONstudent, JSONteacher]
+    classlist = [JSONstudent, JSONteacher, JSONdecan,]
 
     def get(self):
         for User in UserSystem.classlist:

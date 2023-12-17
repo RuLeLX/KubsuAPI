@@ -22,14 +22,14 @@ def AuthUser(request):
     if payload == Error.data:
         return Response(Error.data)
 
-    # token = jwt.encode(payload, 'secret', algorithm='HS256')
-    # response = Response()
-    # response.set_cookie(key='jwt', value=token, httponly=True)
-    # response.data = {
-    #     'jwt': token
-    # }
+    token = jwt.encode(payload, 'secret', algorithm='HS256')
+    response = Response()
+    response.set_cookie(key='jwt', value=token, httponly=True)
+    response.data = {
+        'jwt': token
+    }
 
-    # return response
+    return response
 
-    return Response(payload)
+    #return Response(payload)
 

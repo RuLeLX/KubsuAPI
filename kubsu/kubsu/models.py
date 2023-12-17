@@ -1,5 +1,6 @@
 from django.db import models
 from Account.models import *
+from LearnData.models import *
 
 #Here relations Faculties, Specials, Groups and relation many-to-many fac_teacher
 class Faculties(models.Model):
@@ -34,5 +35,16 @@ class Fac_teacher(models.Model):
     id_faculty = models.ForeignKey(
         'kubsu.Faculties',
         on_delete=models.CASCADE
+    )
+
+class teacher_descip(models.Model): #Many to many Teacher and his desciplines
+    id_teacher = models.ForeignKey(
+        'Account.Teachers',
+        on_delete=models.CASCADE
+    )
+    id_discip = models.ForeignKey(
+        'LearnData.Desciplines',
+        on_delete=models.CASCADE,
+        
     )
     

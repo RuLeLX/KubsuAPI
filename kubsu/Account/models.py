@@ -22,7 +22,6 @@ class Teachers(models.Model):
     patronym = models.TextField()
     password = models.TextField(default='password')
 
-
     email = models.TextField(null=False, unique=True)
     academic_title = models.TextField()
     department = models.TextField()
