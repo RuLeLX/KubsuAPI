@@ -30,7 +30,8 @@ class JSONstudent(AbstractUser):
             datauser = Students.objects.filter(id_student=self.login, password=self.password).first()
             try:
                 if datauser.id_student != '':
-                    return StudentSerializer(datauser)
+                    datauser = StudentSerializer(datauser)
+                    return datauser
             except AttributeError:
                 return Error
         return False
@@ -50,7 +51,8 @@ class JSONteacher(AbstractUser):
             datauser = Teachers.objects.filter(email=self.login, password=self.password).first()
             try:
                 if datauser.email != '':
-                    return TeacherSerializer(datauser)
+                    datauser = TeacherSerializer(datauser)
+                    return datauser
             except AttributeError:
                 return Error
         return False
@@ -68,7 +70,8 @@ class JSONdecan(AbstractUser):
             datauser = Decan.objects.filter(login=self.login, password=self.password).first()
             try:
                 if datauser.login != '':
-                    return DecanSerializer(datauser)
+                    datauser = DecanSerializer(datauser)
+                    return datauser
             except AttributeError:
                 return Error
         return False
